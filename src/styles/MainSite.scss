@@ -1,0 +1,23 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  font-size: 90px;
+  padding: 10px 20px;
+  border: 2px solid black;
+}
+
+li.second {
+  margin-top: 100px;
+}
+
+li.second a {
+  padding: 10px 100px;
+}
