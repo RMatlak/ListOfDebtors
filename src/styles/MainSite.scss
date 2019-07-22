@@ -12,6 +12,8 @@ a {
   font-size: 90px;
   padding: 10px 20px;
   border: 2px solid black;
+  transition: 0.3s;
+  color: black;
 }
 
 li.second {
@@ -20,4 +22,9 @@ li.second {
 
 li.second a {
   padding: 10px 100px;
+}
+
+a:hover {
+  background-color: #333;
+  color: white;
 }

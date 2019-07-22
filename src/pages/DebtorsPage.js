@@ -15,11 +15,11 @@ class DebtorsPage extends Component {
             <input type="number" id="money" />
           </label>
           <label for="start">
-            Data porzyczki
+            Data pożyczki
             <input type="date" id="start" value={} />
           </label>
           <label for="done">
-            Planowana date spłaty
+            Planowana data spłaty
             <input type="date" id="done" value={} />
           </label>
         </div>
