@@ -6,23 +6,17 @@ import DebtorsPage from "../pages/DebtorsPage";
 
 class App extends Component {
   state = {
-    pageOne: false
+    tasks: []
   };
 
-  handleChange = () => {
-    this.setState({
-      pageOne: !this.state.pageOne
-    });
-  };
+  
 
   render() {
     return (
       <>
         <Router>
           <main>
-            {this.state.pageOne ? null : (
-              <MainSite handleChange={this.handleChange} />
-            )}
+            <Route path="/" exact component={MainSite} />
             <Route path="/debtors" component={DebtorsPage} />
           </main>
         </Router>

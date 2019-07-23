@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 const MainSite = props => {
   return (
     <>
-      <ul>
+      <ul className="mainUl">
         <li>
-          <NavLink onClick={props.handleChange} to="/debtors">
+          <NavLink onClick={props.handlePageChange} to="/debtors">
             Lista Dłużników
           </NavLink>
         </li>
