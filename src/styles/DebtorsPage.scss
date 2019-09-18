@@ -1,4 +1,4 @@
-div {
+div.debtorsStyle {
   width: 100vw;
   height: 40vh;
   display: flex;
@@ -41,4 +41,11 @@ span {
   color: red;
   font-size: 10px;
   margin-left: 10px;
+}
+
+h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 3vw;
 }

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "../styles/DebtorsPage.scss";
 import AddList from "../components/AddList";
+import { connect } from "react-redux";
+import * as actions from "../store/actions/index";
 
 class DebtorsPage extends Component {
   currentDate = new Date().toISOString().slice(0, 10);
   state = {
-    date: this.currentDate,
-    secondDate: this.currentDate,
     value: "",
     number: "",
-    tasks: [],
+    date: this.currentDate,
+    secondDate: this.currentDate,
+    amount: null,
     errors: {
       name: false,
       money: false
@@ -20,7 +22,8 @@ class DebtorsPage extends Component {
     nameIncorrect: "Musisz podać imię",
     moneyIncorrect: "Musisz podać kwotę"
   };
-
+ 
+ 
   handleChange = e => {
     if (e.target.type === "text") {
       this.setState({
@@ -44,24 +47,24 @@ class DebtorsPage extends Component {
   };
 
   errorsCheck = () => {
-    let name = false;
-    let money = false;
+    let value = false;
+    let number = false;
     let correct = false;
 
     if (this.state.value !== "") {
-      name = true;
+      value = true;
     }
     if (this.state.number !== "") {
-      money = true;
+      number = true;
     }
-    if (money && name) {
+    if (value && number) {
       correct = true;
     }
 
     return {
       correct,
-      name,
-      money
+      value,
+      number
     };
   };
 
@@ -84,29 +87,25 @@ class DebtorsPage extends Component {
         name: this.state.value,
         money: this.state.number,
         date: this.state.date,
-        secondDate: this.state.secondDate
+        secondDate: this.state.secondDate,
+        userId: this.props.userId
       };
-      let tasks = [...this.state.tasks];
-      tasks.push(task);
-      this.setState({
-        tasks
-      });
+      this.props.onSendDebtors(task, this.props.token);
     } else {
       this.setState({
         errors: {
-          name: !errorsCheck.name,
-          money: !errorsCheck.money
+          name: !errorsCheck.value,
+          money: !errorsCheck.number
         }
       });
     }
   };
 
   render() {
-    const { date, value, number, secondDate, errors } = this.state;
-
+    const { date, value, number, secondDate, errors, amount } = this.state;
     return (
       <>
-        <div>
+        <div className="debtorsStyle">
           <label for="name">
             Imię dłużnika
             <input
@@ -148,12 +147,30 @@ class DebtorsPage extends Component {
           <button onClick={this.handleClick}>Dodaj</button>
         </div>
         <ul className="debtorsUl">
-          <h1>Lista dłuzników ({this.state.tasks.length})</h1>
-          <AddList tasks={this.state.tasks} />
+          <h1>Lista dłuzników ({this.props.tasks.length})</h1>
+          <AddList tasks={this.props.tasks} />
         </ul>
+        <h2>Suma: {amount}zł</h2>
       </>
     );
   }
 }
 
-export default DebtorsPage;
+const mapStateToProps = state => {
+  return {
+    tasks: state.debtors.tasks,
+    token: state.auth.token,
+    userId: state.auth.userId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSendDebtors: (tasks, token) => dispatch(actions.sendDebtors(tasks, token))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DebtorsPage);
