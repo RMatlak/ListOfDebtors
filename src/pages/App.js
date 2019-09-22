@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "../styles/App.scss";
-import MainSite from "./MainSite";
+import "./App.scss";
+import MainSite from "../pages/MainSite/MainSite";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import DebtorsPage from "../pages/DebtorsPage";
-import Auth from "../pages/Auth";
-import Logout from "../pages/Logout";
+import DebtorsPage from "./Debtors/DebtorsPage";
+import DebtsPage from "./DebtsPage/DebtsPage";
+import Auth from "../pages/Authorization/Auth";
+import Logout from "../pages/Authorization/Logout/Logout";
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
             <main>
               <Route path="/" exact component={MainSite} />
               <Route path="/debtors" component={DebtorsPage} />
+              <Route path="/debts" component={DebtsPage} />
               <Route path='/login' component={Auth}/>
               <Route path='/logout' component={Logout}/>
             </main>

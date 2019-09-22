@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./components/App";
+import App from "../src/pages/App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import authReducer from "./store/reducers/auth";
 import debtorsReducer from "../src/store/reducers/debtors";
+import debtsReducer from "../src/store/reducers/debts";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  debtors: debtorsReducer
+  debtors: debtorsReducer,
+  debts: debtsReducer
 });
 
 const store = createStore(

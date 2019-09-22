@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "../styles/MainSite.scss";
+import "./MainSite.scss";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../store/actions/index";
+import * as actions from "../../store/actions/index";
 
 class MainSite extends Component {
   componentDidMount() {
-    console.log("Działa");
     this.props.onFetchDebtors(this.props.token, this.props.userId);
+    this.props.onFetchDebts(this.props.token, this.props.userId);
   }
 
   render() {
@@ -23,7 +23,7 @@ class MainSite extends Component {
           </li>
           <li className="second">
             {this.props.isAuthenticated ? (
-              <NavLink>Twoje długi</NavLink>
+              <NavLink to="/debts">Twoje długi</NavLink>
             ) : (
               <NavLink to="/login">Musisz być zalogowany</NavLink>
             )}
@@ -52,7 +52,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchDebtors: (token, userId) =>
-      dispatch(actions.fetchDebtors(token, userId))
+      dispatch(actions.fetchDebtors(token, userId)),
+    onFetchDebts: (token, userId) => dispatch(actions.fetchDebts(token, userId))
   };
 };
 

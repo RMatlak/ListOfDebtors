@@ -32,7 +32,7 @@ export const fetchDebtors = (token, userId) => {
       if(response.data === null) {
         const fetchedTasks = [];
       } else {
-       let fetchedTasks = [];
+       const fetchedTasks = [];
       console.log(response.data);
       for (let key in response.data) {
         fetchedTasks.push({

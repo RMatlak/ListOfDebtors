@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Task.scss";
+import "./Task.scss";
 
 const Task = props => {
   const handleOptions = e => {

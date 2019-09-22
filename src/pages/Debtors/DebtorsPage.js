@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../styles/DebtorsPage.scss";
-import AddList from "../components/AddList";
+import "./DebtorsPage.scss";
+import AddList from "../../components/AddList/AddList";
 import { connect } from "react-redux";
-import * as actions from "../store/actions/index";
+import * as actions from "../../store/actions/index";
 
 class DebtorsPage extends Component {
   currentDate = new Date().toISOString().slice(0, 10);
@@ -105,7 +105,7 @@ class DebtorsPage extends Component {
     const { date, value, number, secondDate, errors, amount } = this.state;
     return (
       <>
-        <div className="debtorsStyle">
+        <div className="Style">
           <label for="name">
             Imię dłużnika
             <input
@@ -166,7 +166,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSendDebtors: (tasks, token) => dispatch(actions.sendDebtors(tasks, token))
+    onSendDebtors: (tasks, token) => dispatch(actions.sendDebtors(tasks, token)),
+    onSendDebts: (debts, token) => dispatch(actions.sendDebts(debts, token))
   };
 };
 

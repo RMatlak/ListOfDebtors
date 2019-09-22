@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "./Task";
+import Task from "./Task/Task";
 
 const AddList = props => {
   const addTask = props.tasks.map(task => {

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "../styles/Auth.scss";
-// import axios from "axios";
-import * as actions from "../store/actions/index";
-import Spinner from "../Spinner/Spinner";
+import "./Auth.scss";
+import * as actions from "../../store/actions/index";
+import Spinner from "../../Spinner/Spinner";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 

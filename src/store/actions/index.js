@@ -6,4 +6,9 @@ export {
 export {
     sendDebtors,
     fetchDebtors
-} from './debtors'
+} from './debtors';
+
+export {
+    sendDebts,
+    fetchDebts
+} from './debts';
