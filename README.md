@@ -1,1 +1,1 @@
-To use this project you have to copy url (in this case 
+To use this project you have to click on clone and copy url, then in your code editor you have to open folder (in which you want to download this repository) in terminal and type git clone and the url address. When you finish then you have to type npm install and finally npm start. If the aplication does not work, you have to type in terminal ##npm update.
