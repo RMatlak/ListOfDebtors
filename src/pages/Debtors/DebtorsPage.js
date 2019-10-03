@@ -11,19 +11,18 @@ class DebtorsPage extends Component {
     number: "",
     date: this.currentDate,
     secondDate: this.currentDate,
-    amount: null,
     errors: {
       name: false,
       money: false
     }
   };
-
+ 
   messages = {
     nameIncorrect: "Musisz podać imię",
     moneyIncorrect: "Musisz podać kwotę"
   };
- 
- 
+
+
   handleChange = e => {
     if (e.target.type === "text") {
       this.setState({
@@ -70,6 +69,7 @@ class DebtorsPage extends Component {
 
   handleClick = e => {
     e.preventDefault();
+    
 
     const errorsCheck = this.errorsCheck();
     if (errorsCheck.correct) {
@@ -102,7 +102,9 @@ class DebtorsPage extends Component {
   };
 
   render() {
-    const { date, value, number, secondDate, errors, amount } = this.state;
+    const { date, value, number, secondDate, errors } = this.state;
+    
+    
     return (
       <>
         <div className="Style">
@@ -148,9 +150,8 @@ class DebtorsPage extends Component {
         </div>
         <ul className="debtorsUl">
           <h1>Lista dłuzników ({this.props.tasks.length})</h1>
-          <AddList tasks={this.props.tasks} />
+          <AddList tasks={this.props.tasks} delete={this.handleDelete} />
         </ul>
-        <h2>Suma: {amount}zł</h2>
       </>
     );
   }
@@ -167,7 +168,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSendDebtors: (tasks, token) => dispatch(actions.sendDebtors(tasks, token)),
-    onSendDebts: (debts, token) => dispatch(actions.sendDebts(debts, token))
   };
 };
 

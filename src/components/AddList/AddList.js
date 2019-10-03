@@ -5,11 +5,12 @@ const AddList = props => {
   const addTask = props.tasks.map(task => {
     return (
       <Task
-        // key={task.name}
+        key={task.id}
         name={task.name}
         money={task.money}
         date={task.date}
         secondDate={task.secondDate}
+        id={task.id}
       />
     );
   });

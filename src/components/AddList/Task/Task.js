@@ -2,14 +2,9 @@ import React from "react";
 import "./Task.scss";
 
 const Task = props => {
-  const handleOptions = e => {
-    console.log(e.clientX);
-    console.log(e.clientY);
-  };
-
   return (
     <>
-      <li onClick={handleOptions}>
+      <li>
         <p>
           Imię: <strong>{props.name}</strong>
         </p>
@@ -22,6 +17,7 @@ const Task = props => {
         <p>
           Data spłaty: <strong>{props.secondDate}</strong>
         </p>
+        <button className="deleteBtn">X</button>
       </li>
     </>
   );

@@ -14,7 +14,7 @@ const sendDebtorsSuccess = (state, action) => {
 
 const fetchDebtorsSuccess = (state, action) => {
   return updateObject(state, {
-    tasks: action.tasks
+    tasks: action.tasks,
   })
 }
 

@@ -10,7 +10,6 @@ class DebtsPage extends Component {
     number: "",
     date: this.currentDate,
     secondDate: this.currentDate,
-    amount: null,
     errors: {
       name: false,
       money: false
@@ -101,7 +100,7 @@ class DebtsPage extends Component {
   };
 
   render() {
-    const { date, value, number, secondDate, errors, amount } = this.state;
+    const { date, value, number, secondDate, errors } = this.state;
     return (
       <>
         <div className="Style">
@@ -149,7 +148,7 @@ class DebtsPage extends Component {
           <h1>Lista twoich długów ({this.props.debts.length})</h1>
           <AddList tasks={this.props.debts} />
         </ul>
-        <h2>Suma: {amount}zł</h2>
+     
       </>
     );
   }

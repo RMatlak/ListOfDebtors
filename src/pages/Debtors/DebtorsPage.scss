@@ -49,3 +49,62 @@ h2 {
   left: 0;
   font-size: 3vw;
 }
+
+@media(max-width: 768px) {
+  button {
+    margin-left: 500px; 
+  }
+}
+
+
+@media(max-width: 414px) {
+  button {
+    margin-left: 300px; 
+    margin-top: 50px;
+  }
+  ul h1 {
+    text-align: center;
+    margin-top: 150px;
+  }
+}
+
+@media(max-width: 375px) {
+  button {
+    margin-left: 250px; 
+    margin-top: 10px;
+  }
+  ul h1 {
+    text-align: center;
+    margin-top: 200px;
+  }
+}
+
+@media(max-width: 320px) {
+  button {
+    margin-left: 250px; 
+    margin-top: 10px;
+  }
+  ul h1 {
+    text-align: center;
+    margin-top: 200px;
+  }
+  label {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+}
+
+@media(orientation: landscape) {
+  button {
+    margin-left: 250px; 
+    margin-top: 10px;
+  }
+  ul h1 {
+    text-align: center;
+    margin-top: 200px;
+  }
+  label {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+}

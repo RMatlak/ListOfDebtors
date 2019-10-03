@@ -29,19 +29,20 @@ export const fetchDebtors = (token, userId) => {
     const queryParams =
       "?auth" + token + '&orderBy="userId"&equalTo="' + userId + '"';
     axios.get("/debtors.json" + queryParams).then(response => {
-      if(response.data === null) {
+      if (response.data === null) {
         const fetchedTasks = [];
       } else {
-       const fetchedTasks = [];
-      console.log(response.data);
-      for (let key in response.data) {
-        fetchedTasks.push({
-          ...response.data[key],
-          id: key
-          
-        })};
+        const fetchedTasks = [];
+        console.log(response.data);
+        for (let key in response.data) {
+          fetchedTasks.push({
+            ...response.data[key],
+            id: key
+          });
+        }
         dispatch(fetchDebtorsSuccess(fetchedTasks));
       }
     });
   };
 };
+

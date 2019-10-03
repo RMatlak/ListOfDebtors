@@ -8,20 +8,22 @@ import Auth from "../pages/Authorization/Auth";
 import Logout from "../pages/Authorization/Logout/Logout";
 
 class App extends Component {
-  state = {
-  };
+  state = {};
 
   render() {
+   
+    
+
     return (
       <>
         <Router basename={process.env.PUBLIC_URL}>
-            <main>
-              <Route path="/" exact component={MainSite} />
-              <Route path="/debtors" component={DebtorsPage} />
-              <Route path="/debts" component={DebtsPage} />
-              <Route path='/login' component={Auth}/>
-              <Route path='/logout' component={Logout}/>
-            </main>
+          <main>
+            <Route path="/" exact component={MainSite} />
+            <Route path="/debtors" component={DebtorsPage} />
+            <Route path="/debts" component={DebtsPage} />
+            <Route path="/login" component={Auth} />
+            <Route path="/logout" component={Logout} />
+          </main>
         </Router>
       </>
     );
